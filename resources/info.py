@@ -4,7 +4,9 @@ from datetime import datetime
 from flask import jsonify, request
 
 
-blp = Blueprint("Info", "info", description="GET requests on JSON information.")
+blp = Blueprint(
+    "Info", "info", description="GET requests on JSON information.")
+
 
 @blp.route("/api")
 class Info(MethodView):
@@ -12,12 +14,12 @@ class Info(MethodView):
         slack_name = request.args.get("slack_name")
         track = request.args.get("track")
         data = {
-        "slack_name": slack_name,
-        "current_day": datetime.utcnow().strftime('%A'),
-        "utc_time": datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'),
-        "track": track,
-        "github_file_url": "",
-        "github_repo_url": "",
-        "status_code": 200
+            "slack_name": slack_name,
+            "current_day": datetime.utcnow().strftime('%A'),
+            "utc_time": datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ'),
+            "track": track,
+            "github_file_url": "https://github.com/iamprecieee/HNGx-Task/blob/main/app.py",
+            "github_repo_url": "https://github.com/iamprecieee/HNGx-Task",
+            "status_code": 200
         }
         return jsonify(data)
