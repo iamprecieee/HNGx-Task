@@ -4,6 +4,6 @@ alembic==1.9.4
 autopep8==2.0.4
 Flask==2.2.3
 flask-smorest
-python-dotenv==1.0.0
-requests==2.27.1
-virtualenv==20.23.1
+python-dotenv
+requests
+virtualenv
